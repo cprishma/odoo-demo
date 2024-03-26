@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <menuitem id="sale_activity_root_menu"
+              name="Sale Analysis"
+              sequence="10"/>
+</odoo>

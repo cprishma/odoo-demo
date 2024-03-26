@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <template id="sale_analysis_report">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <div class="page">
+                    <style>
+                        .heading {
+                        color: #100840;
+                        text-align: center;
+                        text-decoration: underline;
+                        font-weight: bold;
+                        margin-bottom: 8px;
+                        font-size: 20px;
+                        }
+                        .first-table {
+                        border: 1px solid red;
+                        border-collapse: collapse;
+                        color: #00134d;
+                        background-color: white;
+                        width: 100%;
+                        font-size: 18px;
+
+                        }
+                        .first-table th,
+                        .first-table td {
+                        border: 1px solid red;
+                        border-collapse: collapse;
+                        padding: 8px;
+                        font-size: 18px;
+                        }
+                        .table-heading {
+                        background-color: #F3E0E4;
+                        font-size: 18px;
+                        }
+
+                    </style>
+                    <div class="heading">
+                        Sale Analysis Report
+                    </div>
+                    <br/>
+                    <div>
+                        <table class="first-table">
+                            <tr>
+                                <td class="table-heading">SalesPerson</td>
+                                <td class="table-heading">No of Quotation</td>
+                                <td class="table-heading">Total Quotation Amount</td>
+                                <td class="table-heading">Number of Invoices Paid</td>
+                                <td class="table-heading">Number of Unpaid Invoices</td>
+
+                                <td class="table-heading">Total Amount of Invoices</td>
+                                <td class="table-heading">Total Amount Received</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <span t-field="o.users_id"/>
+                                </td>
+                                <td>
+                                    <span t-field="o.num_quotations"/>
+                                </td>
+                                <td>
+                                    <span t-field="o.total_amount_quotations"/>
+                                </td>
+                                <td>
+                                    <span t-field="o.num_invoices"/>
+                                </td>
+                                <td>
+                                    <span t-field="o.unpaid_invoices"/>
+                                </td>
+                                <td>
+                                    <span t-field="o.total_amount_invoice"/>
+                                </td>
+                                <td>
+                                    <span t-field="o.amount_received"/>
+                                </td>
+                            </tr>
+                        </table>
+
+                    </div>
+                </div>
+            </t>
+        </t>
+    </template>
+</odoo>

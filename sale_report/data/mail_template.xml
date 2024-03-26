@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data noupdate="0">
+        <record id="sale_analysis_mail_template" model="mail.template">
+            <field name="name">Sale Analysis</field>
+            <field name="model_id" ref="sale_report.model_sale_activity"/>
+            <field name="email_from">rishmacp2022@gmail.com</field>
+            <field name="email_to">{{ user.email }}</field>
+            <field name="subject">Sale Analysis</field>
+            <field name="body_html" type="html">
+                <p>Sale Analysis</p>
+                <P>
+                    Dear
+                    <br></br>
+                    <t t-out="user.name"/>
+                    <br></br>
+                    <br></br>
+                    Here is the sales analysis report of
+                    <t t-out="object.users_id.name"/>,
+
+                    for the period from
+                    <t t-out="object.start_date"/>
+                    to <t t-out="object.end_date"/>:
+                    <br></br>
+                    <br></br>
+                    Number of Quotations:
+                    <t t-out="object.num_quotations"/>
+                    <br></br>
+                   Total Quotation Amount:
+                    <t t-out="object.total_amount_quotations"/>
+                    <br></br>
+                    Total Number of Invoices:
+                    <t t-out="object.total_num_invoices"/>
+                    <br></br>
+                    Number of Invoices Paid:
+                    <t t-out="object.num_invoices"/>
+                    <br></br>
+                    Number of Invoices Unpaid:
+                    <t t-out="object.unpaid_invoices"/>
+                    <br></br>
+                    Total Amount of Invoices:
+                    <t t-out="object.total_amount_invoice"/>
+                    <br></br>
+                    Total Amount Received:
+                    <t t-out="object.amount_received"/>
+                    <br></br>
+                    <br></br>
+                    Thank you for your attention to this sales analysis report. Please let us know if you have any
+                    questions or require further information.
+                    <br></br>
+                    <br></br>
+<!--                    Best regards,-->
+<!--                    <br></br>-->
+<!--                    <t t-out="user.name"/>-->
+                </P>
+
+            </field>
+        </record>
+    </data>
+</odoo>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="analysis_leader_rule_1" model="ir.rule">
+        <field name="name">See all data Analysis</field>
+        <field name="model_id" ref="model_sale_activity"/>
+        <field name="domain_force">[('users_id', '=', user.id)]</field>
+        <field name="perm_read" eval="True"/>
+        <field name="perm_write" eval="True"/>
+        <field name="perm_create" eval="True"/>
+        <field name="perm_unlink" eval="True"/>
+        <field name="groups" eval="[(4, ref('sales_team.group_sale_salesman_all_leads'))]"/>
+    </record>
+
+
+     <record id="analysis_superuser_rule" model="ir.rule">
+        <field name="name">Super Power User Analysis</field>
+        <field name="model_id" ref="model_sale_activity"/>
+        <field name="domain_force">[]</field>
+        <field name="perm_read" eval="True"/>
+        <field name="perm_write" eval="True"/>
+        <field name="perm_create" eval="True"/>
+        <field name="perm_unlink" eval="True"/>
+        <field name="groups" eval="[(4, ref('sales_team.group_sale_manager'))]"/>
+    </record>
+
+    <record id="analysis_only_own_rule" model="ir.rule">
+        <field name="name">Only Own Documents Analysis</field>
+        <field name="model_id" ref="model_sale_activity"/>
+        <field name="domain_force">[('users_id', '=', user.id)]</field>
+        <field name="perm_read" eval="True"/>
+        <field name="perm_write" eval="True"/>
+        <field name="perm_create" eval="True"/>
+        <field name="perm_unlink" eval="True"/>
+        <field name="groups" eval="[(4, ref('sales_team.group_sale_salesman'))]"/>
+    </record>
+
+</odoo>
