@@ -23,7 +23,7 @@
 
     # always loaded
     'data': [
-        'security/ir.models.py.access.csv',
+        'security/ir.models.access.csv',
         'views/views.xml',
         'views/templates.xml',
         'views/cars.xml',
